@@ -54,10 +54,12 @@ export default function Header() {
                 <PopoverGroup className="hidden lg:flex lg:gap-x-12">
                     <NavLink to="/about" className="text-sm font-semibold leading-6 text-gray-900">
                         About Us
-                    </NavLink>
+                    </NavLink>  
                     <Popover className="relative">
                         <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-                            Services
+                        <NavLink to="/services" className="text-sm font-semibold leading-6 text-gray-900">
+                        Services
+                    </NavLink> 
                             <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none text-gray-400" />
                         </PopoverButton>
 
