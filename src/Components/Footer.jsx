@@ -21,18 +21,18 @@ function Footer() {
                     {/* Logo and Locations */}
                     <div className="flex flex-col items-start mb-8 md:mb-0"> {/* Added margin-bottom for spacing */}
                         <img className="mb-4" src={logo} alt="Footer Logo" /> {/* Add margin for spacing */}
-                        <ul className="text-white space-y-2">
+                        <ul className="text-white space-y-6">
                             <Link  className="flex items-center">
                                 <i className="fa-solid fa-location-dot me-2"></i>
-                                California
+                                California Lorem ipsum dolor sit amet <br />consectetur adipisicing elit. Illum, dolore!
                             </Link>
                             <li className="flex items-center">
                                 <i className="fa-solid fa-location-dot me-2"></i>
-                                Jeddah
+                                Jeddah Lorem ipsum dolor sit amet consectetur,<br /> adipisicing elit. Nihil, libero?
                             </li>
                             <li className="flex items-center">
                                 <i className="fa-solid fa-location-dot me-2"></i>
-                                Islamabad
+                                Islamabad Lorem ipsum dolor sit amet consectetur <br /> adipisicing elit. Dolorum, quae.
                             </li>
                             <div className='space-x-5'>
                                 <a href="https://www.facebook.com/">
@@ -61,10 +61,10 @@ function Footer() {
                             <Link to='/' className="flex items-center">
                                 Home
                             </Link>
-                            <Link to='/about' className="flex items-center">
+                            <Link to='about' className="flex items-center">
                                 About Us
                             </Link>
-                            <Link to='' className="flex items-center">
+                            <Link to='services' className="flex items-center">
                                 Services
                             </Link>
                             <Link className="flex items-center">
@@ -76,10 +76,10 @@ function Footer() {
                             <Link className="flex items-center">
                                 CLients & Testimonials
                             </Link>
-                            <Link className="flex items-center">
+                            <Link to='contact' className="flex items-center">
                                 Contact Us
                             </Link>
-                            <Link className="flex items-center">
+                            <Link to='blogs' className="flex items-center">
                                 Blog
                             </Link>
                         </ul>

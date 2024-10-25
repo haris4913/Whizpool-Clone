@@ -2,18 +2,17 @@ import React from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import img2 from '../img/block-image-1.svg';
 import img3 from '../img/block-image-2.svg';
+import img4 from '../img/group-meeting.png';
 import flipimg1 from '../img/flip-1.svg';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import { Autoplay, FreeMode } from 'swiper/modules'
+import { useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/autoplay';
 import 'swiper/css/pagination';
-
-
-
 
 
 function Home() {
@@ -24,6 +23,11 @@ function Home() {
 
   const handleDone = () => {
     console.log("Done after 5 loops!");
+  };
+
+  const [selct, setselect] = useState();
+  const handleDropdownList = (event) => {
+    setselect(event.target.value);
   };
 
   return (
@@ -295,7 +299,7 @@ function Home() {
               <SwiperSlide>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam similique consequatur deleniti, beatae quam voluptates ab dolorem dignissimos maiores laboriosam.</SwiperSlide>
               <SwiperSlide>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam similique consequatur deleniti, beatae quam voluptates ab dolorem dignissimos maiores laboriosam.</SwiperSlide>
               <SwiperSlide>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam similique consequatur deleniti, beatae quam voluptates ab dolorem dignissimos maiores laboriosam.</SwiperSlide>
-             
+
             </Swiper>
           </div>
 
@@ -304,6 +308,92 @@ function Home() {
           Read More
         </Link>
       </div>
+
+      <div className="relative flex flex-col md:flex-row justify-start items-end" style={{ backgroundColor: '#e9f5ff' }}>
+        <img src={img4} alt="" className="w-full md:w-1/2 " />
+        <div className="md:absolute left-[60%] top-[50%] w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-2xl sm:p-6 md:p-8">
+          <form action="#">
+            <h5 className="text-xl font-medium">Talk to us and</h5>
+            <h2 className="form-heading font-bold text-3xl mb-3">Get your project moving!</h2>
+            <div className='space-y-4'>
+              <div className='flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0 '>
+                <div className="w-full">
+                  <label htmlFor="name" className="block text-sm font-medium"></label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Name*"
+                    autoComplete="name"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    required
+                  />
+                </div>
+
+                <div className="w-full">
+                  <label htmlFor="email" className="block text-sm font-medium"></label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    autoComplete="email"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder="E-mail*"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className='flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0 '>
+
+                <div className="w-full">
+                  <label htmlFor="phone" className="block text-sm font-medium"></label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    id="phone"
+                    autoComplete="tel"
+                    placeholder="Phone (optional)"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  />
+                </div>
+                <div className="w-full">
+                  <select
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="option"
+                    id="option"
+                    value={selct}
+                    onChange={handleDropdownList}
+                  >
+                    <option value="">Select option</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <textarea
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  name="msg"
+                  id="msg"
+                  placeholder='Enter Your Msg*'
+                  required
+                ></textarea>
+              </div>
+
+              <button
+                type='submit'
+                className="block mx-auto text-center w-fit text-white bg-red-400 hover:bg-red-300 font-medium rounded-lg text-sm px-5 py-2.5"
+              >
+                Submit
+              </button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+
 
 
 

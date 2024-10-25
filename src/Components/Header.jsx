@@ -16,7 +16,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import img1 from "../img/faviconV2.png"
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const products = [
     { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#' },
@@ -97,12 +97,12 @@ export default function Header() {
                     <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
                         Testimonials
                     </a>
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                    <NavLink to='/blogs' className="text-sm font-semibold leading-6 text-gray-900">
                         Blog
-                    </a>
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                    </NavLink>
+                    <NavLink to='/contact' className="text-sm font-semibold leading-6 text-gray-900">
                         Contact Us
-                    </a>
+                    </NavLink>
                 </PopoverGroup>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                     <button type="button" className="text-white bg-red-400 hover:bg-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Get in touch</button>

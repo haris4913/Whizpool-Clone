@@ -5,6 +5,7 @@ import Home from './Pages/Home.jsx';
 import Test from './Pages/Test.jsx';
 import Services from "./Pages/Services.jsx";
 import Blogs from "./Pages/Blogs.jsx";
+import ContactUs from "./Pages/ContactUs.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,6 +23,8 @@ const router = createBrowserRouter(
         <Route path="services" element={<Services />} />
 
         <Route path="blogs" element={<Blogs />} />
+        <Route path="contact" element={<ContactUs />} />
+
       </Route>
     </>
   )
