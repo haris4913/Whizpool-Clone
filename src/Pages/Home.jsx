@@ -23,7 +23,7 @@ function Home() {
   };
 
   const handleDone = () => {
-    console.log('Done after 5 loops!');
+    console.log("Done after 5 loops!");
   };
 
   return (
