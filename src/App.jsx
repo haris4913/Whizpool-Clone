@@ -4,6 +4,7 @@ import Layout from './Components/Layout.jsx';
 import Home from './Pages/Home.jsx';
 import Test from './Pages/Test.jsx';
 import Services from "./Pages/Services.jsx";
+import Blogs from "./Pages/Blogs.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,8 @@ const router = createBrowserRouter(
 
         {/* Services route */}
         <Route path="services" element={<Services />} />
+
+        <Route path="blogs" element={<Blogs />} />
       </Route>
     </>
   )
