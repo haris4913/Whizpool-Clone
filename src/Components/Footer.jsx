@@ -22,7 +22,7 @@ function Footer() {
                     <div className="flex flex-col items-start mb-8 md:mb-0"> {/* Added margin-bottom for spacing */}
                         <img className="mb-4" src={logo} alt="Footer Logo" /> {/* Add margin for spacing */}
                         <ul className="text-white space-y-6">
-                            <Link  className="flex items-center">
+                            <Link className="flex items-center">
                                 <i className="fa-solid fa-location-dot me-2"></i>
                                 California Lorem ipsum dolor sit amet <br />consectetur adipisicing elit. Illum, dolore!
                             </Link>
@@ -36,20 +36,20 @@ function Footer() {
                             </li>
                             <div className='space-x-5'>
                                 <a href="https://www.facebook.com/">
-                                <i className="fa-brands fa-facebook"></i>
+                                    <i className="fa-brands fa-facebook"></i>
 
                                 </a>
                                 <a href="">
-                                <i className="fa-brands fa-twitter"></i>
+                                    <i className="fa-brands fa-twitter"></i>
 
                                 </a>
                                 <a href="">
-                                <i className="fa-brands fa-linkedin"></i>
+                                    <i className="fa-brands fa-linkedin"></i>
 
                                 </a>
                                 <a href="">
 
-                                <i className="fa-brands fa-instagram"></i>
+                                    <i className="fa-brands fa-instagram"></i>
                                 </a>
                             </div>
                         </ul>

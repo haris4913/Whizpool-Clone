@@ -16,18 +16,24 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import img1 from "../img/faviconV2.png"
-import { Link, NavLink } from 'react-router-dom'
+import { Link, Navigate, NavLink, useNavigate } from 'react-router-dom'
+import ContactUs from '../Pages/ContactUs'
 
 const products = [
-    { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#' },
-    { name: 'Engagement', description: 'Speak directly to your customers', href: '#' },
-    { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#' },
-    { name: 'Integrations', description: 'Connect with third-party tools', href: '#' },
-    { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#' },
+    { name: 'Cyber Security', description: 'Get a better understanding of your traffic', to: '/services/cybersecurity' },
+    { name: 'Engagement', description: 'Speak directly to your customers', to: 'services/engagement' },
+    { name: 'Security', description: 'Your customers’ data will be safe and secure', to: '/services/security' },
+    { name: 'Integrations', description: 'Connect with third-party tools', to: '/services/integrations' },
+    { name: 'Automations', description: 'Build strategic funnels that will convert', to: '/services/automations' },
 ]
 
 
+
 export default function Header() {
+    const navigate = useNavigate();
+    const handleButtonClick = () => {
+        navigate('/contact');
+    }
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     return (
@@ -54,12 +60,12 @@ export default function Header() {
                 <PopoverGroup className="hidden lg:flex lg:gap-x-12">
                     <NavLink to="/about" className="text-sm font-semibold leading-6 text-gray-900">
                         About Us
-                    </NavLink>  
+                    </NavLink>
                     <Popover className="relative">
                         <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-                        <NavLink to="/services" className="text-sm font-semibold leading-6 text-gray-900">
-                        Services
-                    </NavLink> 
+                            <NavLink to="/services" className="text-sm font-semibold leading-6 text-gray-900">
+                                Services
+                            </NavLink>
                             <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none text-gray-400" />
                         </PopoverButton>
 
@@ -75,10 +81,10 @@ export default function Header() {
                                     >
 
                                         <div className="flex-auto">
-                                            <a href={item.href} className="block font-semibold text-gray-900">
+                                            <NavLink to={item.to} className="block font-semibold text-gray-900">
                                                 {item.name}
                                                 <span className="absolute inset-0" />
-                                            </a>
+                                            </NavLink>
                                             <p className="mt-1 text-gray-600">{item.description}</p>
                                         </div>
                                     </div>
@@ -88,15 +94,15 @@ export default function Header() {
                         </PopoverPanel>
                     </Popover>
 
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                    <NavLink to="/products" className="text-sm font-semibold leading-6 text-gray-900">
                         Products
-                    </a>
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                    </NavLink>
+                    <NavLink to="/careers" className="text-sm font-semibold leading-6 text-gray-900">
                         Careers
-                    </a>
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                    </NavLink>
+                    <NavLink to="/testimonials" className="text-sm font-semibold leading-6 text-gray-900">
                         Testimonials
-                    </a>
+                    </NavLink>
                     <NavLink to='/blogs' className="text-sm font-semibold leading-6 text-gray-900">
                         Blog
                     </NavLink>
@@ -105,20 +111,30 @@ export default function Header() {
                     </NavLink>
                 </PopoverGroup>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <button type="button" className="text-white bg-red-400 hover:bg-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Get in touch</button>
+                    <button onClick={handleButtonClick} type="button" className="text-white bg-red-400 hover:bg-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Get in touch</button>
                 </div>
+
+
+                {/* With navlink also we navigate  */}
+                {/* <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+                    <NavLink to='/contact' type="button" className="text-white bg-red-400 hover:bg-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Get in touch</NavLink>
+                </div> */}
+
+
             </nav>
+
+            {/* Mobile VIEW  */}
             <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
                 <div className="fixed inset-0 z-10" />
                 <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">
-                        <a href="#" className="-m-1.5 p-1.5">
+                        <NavLink to="#" className="-m-1.5 p-1.5">
                             <img
                                 alt=""
                                 src={img1}
                                 className="h-8 w-auto"
                             />
-                        </a>
+                        </NavLink>
                         <button
                             type="button"
                             onClick={() => setMobileMenuOpen(false)}
@@ -130,12 +146,12 @@ export default function Header() {
                     <div className="mt-6 flow-root">
                         <div className="-my-6 divide-y divide-gray-500/10">
                             <div className="space-y-2 py-6">
-                                <a
-                                    href="#"
+                                <NavLink
+                                    to="/about"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
                                     About Us
-                                </a>
+                                </NavLink>
                                 <Disclosure as="div" className="-mx-3">
                                     <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                                         Services
@@ -146,7 +162,7 @@ export default function Header() {
                                             <DisclosureButton
                                                 key={item.name}
                                                 as="a"
-                                                href={item.href}
+                                                to={item.to}
                                                 className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                             >
                                                 {item.name}
@@ -154,42 +170,44 @@ export default function Header() {
                                         ))}
                                     </DisclosurePanel>
                                 </Disclosure>
-                                <a
-                                    href="#"
+                                <NavLink
+                                    to="#"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
                                     Products
-                                </a>
-                                <a
-                                    href="#"
+                                </NavLink>
+                                <NavLink
+                                    to="#"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
                                     Careers
-                                </a>
-                                <a
-                                    href="#"
+                                </NavLink>
+                                <NavLink
+                                    to="#"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
                                     Testimonials
-                                </a>
-                                <a
-                                    href="#"
+                                </NavLink>
+                                <NavLink
+                                    to="#"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
                                     Blogs
-                                </a>
-                                <a
-                                    href="#"
+                                </NavLink>
+                                <NavLink
+                                    to="/contact"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
                                     Contact Us
-                                </a>
+                                </NavLink>
                             </div>
                             <div className="py-6">
-                            <NavLink type="button" className="text-white bg-red-400 hover:bg-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Get in touch</NavLink>
+                                <button onClick={handleButtonClick} type="button" className="text-white bg-red-400 hover:bg-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Get in touch</button>
                             </div>
+
                         </div>
                     </div>
+
                 </DialogPanel>
             </Dialog>
         </header>
