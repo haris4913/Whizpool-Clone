@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, FreeMode, Pagination } from 'swiper/modules'
+import { NavLink, Link } from 'react-router-dom';
 import img2 from '../img/block-image-1.svg';
 import img3 from '../img/block-image-2.svg';
 import img4 from '../img/group-meeting.png';
+import img5 from '../img/hero-1.png'
 import flipimg1 from '../img/flip-1.svg';
-import { Link } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-import { Autoplay, FreeMode } from 'swiper/modules'
-import { useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/autoplay';
@@ -32,9 +31,10 @@ function Home() {
 
   return (
     <div className=" ">
-      <div className="container mx-auto">
-        <div className='mx-auto px-10 md:px-12 lg:px-14'>
-          <h1 className="text-3xl" style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'bold' }}>
+      <div className="flex justify-center items-center container mx-auto w-full">
+
+        <div className='mx-auto px-10 md:px-12 lg:px-14 w-[100%] md:w-[50%]'>
+          <h1 className="text-3xl" style={{ paddingTop: '1rem', margin: 'auto 0', fontWeight: 'bold' }}>
             We Create {' '}
             <span className="text-red-400 font-bold">
               <Typewriter
@@ -50,14 +50,18 @@ function Home() {
             <br />
             Experiences
           </h1>
-          <p>
+          <p className='mb-3'>
             We deliver value to hundreds of leading businesses, which have derived strategic benefits from our transformative solutions. Let’s speak about your project.
           </p>
-          <div className="lg:flex lg:flex-1 lg:justify-start">
-            <button type="button" className="text-white bg-red-400 hover:bg-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">
+          <div className="lg:flex lg:flex-1 lg:justify-start my-4">
+            <NavLink to='/contact' type="button" className="text-white bg-red-400 hover:bg-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2">
               Get in touch
-            </button>
+            </NavLink>
           </div>
+        </div>
+
+        <div>
+          <img className='hidden md:block' src={img5} alt="" />
         </div>
 
       </div>
@@ -229,7 +233,7 @@ function Home() {
       <div>
         <section className="">
           <div className="container px-5 mx-auto my-10">
-            <h1 className='text-center text-3xl font-bold my-10'>We're Proud Of Our Work</h1>
+            <h1 className='text-center text-3xl font-bold my-10' >We're Proud Of Our Work</h1>
             <div className="flex flex-wrap -m-4 text-center">
               <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
                 <div className="border-2 border-gray-200 px-4 py-6 rounded-lg">
@@ -304,12 +308,12 @@ function Home() {
           </div>
 
         </div>
-        <Link to='/Blogs' className="block mx-auto text-center w-fit text-white bg-red-400 hover:bg-red-300 font-medium rounded-lg text-sm px-5 py-2.5">
-          Read More
+        <Link to='/products' className="block mx-auto text-center w-fit text-white bg-red-400 hover:bg-red-300 font-medium rounded-lg text-sm px-5 py-2.5">
+          Explore Us
         </Link>
       </div>
 
-      <div className="relative flex flex-col md:flex-row justify-start items-end" style={{ backgroundColor: '#e9f5ff' }}>
+      <div className="relative flex flex-col md:flex-row justify-start items-end" style={{ backgroundColor: '#e9f5ff' }} id='about'>
         <img src={img4} alt="" className="w-full md:w-1/2 " />
         <div className="md:absolute left-[60%] top-[50%] w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-2xl sm:p-6 md:p-8">
           <form action="#">

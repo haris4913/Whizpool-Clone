@@ -1,5 +1,4 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import img1 from '../img/group-meeting.png'
@@ -11,7 +10,6 @@ function AboutUs() {
   return (
     <>
       <div className="container">
-
         <div className='flex flex-row justify-center items-center mx-[10%]'>
           <div className='py-10 text-center md:w-[40%] md:text-start'>
             <h1 className='text-3xl font-bold pb-5'>Your Software <br /> <span className='text-red-500'> Development </span> Partner</h1>
@@ -21,7 +19,6 @@ function AboutUs() {
           <div className='w-[60%]'>
             <img className='hidden md:block' src={img1} alt="" />
           </div>
-          <Outlet />
 
         </div>
       </div>
